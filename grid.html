@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h1>Predicting Gender Based on Name</h1>
+    <script>
+         async function GetData(){
+        const response = await fetch("https://api.genderize.io?name=scott");
+        const data = await response.json();
+        const{name,gender,count} = data;
+
+        document.getElementById('name').textContent=name;
+        document.getElementById('gender').textContent=gender;
+        document.getElementById('count').textContent=count;
+
+    }GetData();
+
+
+    </script>
+
+    <div class="background-image"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col" style="background-color: pink;">
+                <h1>Name: <span id = "name"></span></h1>
+            </div>
+
+            <div class="col" style="background-color: yellow;">
+                <h1>Gender: <span id = "gender"></span></h1>
+            </div>
+
+            <div class="col" style="background-color: red;">
+                <h1>Count of possible names: <span id = "count"></span></h1>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<style>
+    .background-image{
+        background-image: url('https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/837503f54ffb1ee642776992165afc2a~c5_720x720.jpeg?x-expires=1664758800&x-signature=RGXS8gninKFcIGHavJK6rXfDOcM%3D');
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 100vh;
+    }
+</style>
+
+</html>  
